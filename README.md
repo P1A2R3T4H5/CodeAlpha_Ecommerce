@@ -1,91 +1,141 @@
-# ShopNest — CodeAlpha E-commerce Internship Task
+# ShopNest — E-Commerce Website
 
-A responsive Django e-commerce demo built with HTML, CSS, JavaScript, Django, and SQLite.
+ShopNest is a Django-based e-commerce web application developed as part of the CodeAlpha internship task.
+
+The application provides a simple shopping experience where users can browse products, view product details, register or log in, manage their cart, and place orders.
 
 ## Features
-- Responsive product catalogue with search and category filters
-- Product detail pages
-- Session-based shopping cart (add, update quantity, remove)
-- Registration, login, and logout using Django authentication
-- Authenticated checkout and order creation
-- Order history for the signed-in user
-- Stock validation and inventory reduction during order placement
-- Django admin to manage products and orders
-- Seed command with demo products
-- CSRF protection and server-side form validation
 
-## Tech stack
-- Frontend: HTML5, CSS3, vanilla JavaScript
-- Backend: Python + Django
-- Database: SQLite (included with Django; database file is created locally)
-- Authentication: Django's built-in user authentication
+- Product listing and browsing
+- Individual product detail pages
+- User registration and login
+- User logout
+- Shopping cart
+- Checkout and order placement
+- Order confirmation
+- User order history
+- Database-backed product and order management
+- Responsive interface using HTML, CSS, and JavaScript
 
-## Run locally (Windows / VS Code)
+## Technologies Used
 
-### 1. Open the project folder
-Extract the ZIP, then open the `codealpha_ecommerce` folder in VS Code.
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
 
-### 2. Create and activate a virtual environment
-In the VS Code terminal (PowerShell):
+### Backend
+- Python
+- Django
+
+### Database
+- SQLite for local development
+
+### Version Control
+- Git
+- GitHub
+
+## Project Structure
+
+```text
+CodeAlpha_Ecommerce/
+├── manage.py
+├── requirements.txt
+├── README.md
+├── shopsite/
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── store/
+│   ├── migrations/
+│   ├── management/
+│   │   └── commands/
+│   │       └── seed_products.py
+│   ├── models.py
+│   ├── views.py
+│   ├── forms.py
+│   ├── urls.py
+│   └── admin.py
+├── templates/
+│   └── store/
+└── static/
+    └── store/
+        ├── app.js
+        └── styles.css
+```
+
+## Installation and Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/P1A2R3T4H5/CodeAlpha_Ecommerce.git
+cd CodeAlpha_Ecommerce
+```
+
+### 2. Create a virtual environment
+
+Windows:
 
 ```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
+python -m venv .venv
+.venv\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks activation, use Command Prompt instead:
+### 3. Install dependencies
 
-```bat
-.venv\Scripts\activate.bat
-```
-
-### 3. Install Django
 ```powershell
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-### 4. Create database tables
+### 4. Apply database migrations
+
 ```powershell
 python manage.py migrate
 ```
 
 ### 5. Add sample products
+
 ```powershell
 python manage.py seed_products
 ```
 
 ### 6. Start the development server
+
 ```powershell
 python manage.py runserver
 ```
 
-Open `http://127.0.0.1:8000/` in your browser.
+Open the following address in your browser:
 
-## Optional: Django admin
-Create an administrator:
-```powershell
-python manage.py createsuperuser
-```
-Then visit `http://127.0.0.1:8000/admin/` to manage products and orders.
+http://127.0.0.1:8000/
 
-## Suggested demo flow
-1. Browse products and search for an item.
-2. Open a product detail page and add it to the cart.
-3. Update quantity or remove an item from the cart.
-4. Register an account.
-5. Proceed to checkout and place an order (demo checkout; no payment gateway).
-6. Open **My orders** to view the order.
-7. If desired, use the Django admin to view and update products and order status.
+## Database
 
-## Important notes
-- Checkout creates an order but does not charge a payment method. Do not present it as a live payment gateway.
-- Product images are loaded from Unsplash URLs, so an internet connection is needed for those images. Replace image URLs in the Django admin if desired.
-- This is a local internship-task demo. Before public deployment, set `DEBUG = False`, use a secure environment-based `SECRET_KEY`, configure production hosts, HTTPS, and a production database.
-- Do not commit your local `db.sqlite3`, secrets, or virtual environment to GitHub.
+The application uses SQLite for local development.
 
-## GitHub submission checklist
-- [ ] Run the app and test the full shopping flow.
-- [ ] Add screenshots to the README if requested by CodeAlpha.
-- [ ] Push source code and README to your own GitHub repository.
-- [ ] Include the deployed URL only if you have actually deployed and tested it.
+The local database file is excluded from version control. Running the migrations creates a new database, and the sample-product command populates it with sample products.
+
+## Security Notes
+
+- Do not commit passwords, private API keys, or production secrets.
+- Use environment variables for sensitive settings in production.
+- Configure Django's production security settings before deployment.
+- Do not use Django's development server as a production web server.
+
+## Future Improvements
+
+- Payment gateway integration
+- Product search and filtering
+- Product ratings and reviews
+- Order status tracking
+- Product image management
+- Production database integration
+
+## Repository
+
+GitHub: https://github.com/P1A2R3T4H5/CodeAlpha_Ecommerce
+
+## Project Purpose
+
+This project demonstrates fundamental e-commerce functionality using Django, Python, HTML, CSS, and JavaScript.
