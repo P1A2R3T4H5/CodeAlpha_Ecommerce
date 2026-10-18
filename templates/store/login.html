@@ -1,0 +1,5 @@
+{% extends 'store/base.html' %}
+{% block title %}Log in | ShopNest{% endblock %}
+{% block content %}
+<section class="auth-section container"><div class="auth-art"><span class="eyebrow">WELCOME BACK</span><h2>Your everyday<br><em>starts here.</em></h2><p>Sign in to checkout and keep track of your orders.</p><div class="auth-art-mark">S.</div></div><form method="post" class="auth-card">{% csrf_token %}<span class="eyebrow">YOUR ACCOUNT</span><h1>Good to see you.</h1><p>Log in to continue shopping.</p>{% if form.errors %}<div class="form-error">Your username or password is incorrect. Please try again.</div>{% endif %}{% for field in form %}<div class="form-field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.errors %}<div class="field-error">{{ field.errors|join:", " }}</div>{% endif %}</div>{% endfor %}<input type="hidden" name="next" value="{{ next }}"><button class="button button-dark full-button" type="submit">Log in ↗</button><p class="auth-switch">New to ShopNest? <a href="{% url 'register' %}">Create an account</a></p></form></section>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends 'store/base.html' %}
+{% block title %}Order placed | ShopNest{% endblock %}
+{% block content %}
+<section class="container success-section"><div class="success-icon">✓</div><span class="eyebrow">ORDER CONFIRMED</span><h1>That’s a <em>good choice.</em></h1><p>Your order has been placed successfully. We’ve saved your order details.</p><div class="success-order"><span>Order number</span><strong>#{{ order.id }}</strong><span>Order total</span><strong>₹{{ order.total|floatformat:2 }}</strong><span>Status</span><strong>{{ order.get_status_display }}</strong></div><a class="button button-dark" href="{% url 'my_orders' %}">View my orders ↗</a><a class="continue-link" href="{% url 'home' %}">Continue shopping</a></section>
+{% endblock %}
